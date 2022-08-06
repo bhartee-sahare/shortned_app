@@ -1,0 +1,21 @@
+<%= react_component 'Form', locale: params[:locale] %>
+
+
+<table id="style-3" class="table style-3" data-ordering="false">
+  <thead>
+    <tr>
+      <th>Original Url</th>
+      <th>Shortned Url</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @urls.each do |url| %>
+      <tr>
+        <td><%= url.original%></td>
+        <td><%= request.original_url +  url.shortened%></td>
+        <td><%= link_to 'Destroy', url_path(url.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
